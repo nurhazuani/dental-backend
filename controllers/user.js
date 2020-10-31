@@ -19,13 +19,13 @@ const Users = {
        
     },
 
-    getStaff: async (req, res) => {
+    getRole: async (req, res) => {
         let user = []
 
          console.log(res)
 
 		try {
-            user = await Model.User.findOne({
+            user = await Model.User.findAll({
                     
                 where:{
                     role: req.params.role
@@ -39,7 +39,6 @@ const Users = {
         res.json(user)
        
     },
-
 
     getUser: async (req, res) => {
         let user = []
