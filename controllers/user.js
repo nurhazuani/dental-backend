@@ -19,6 +19,28 @@ const Users = {
        
     },
 
+    getStaff: async (req, res) => {
+        let user = []
+
+         console.log(res)
+
+		try {
+            user = await Model.User.findOne({
+                    
+                where:{
+                    role: req.params.role
+                }
+
+                })
+		} catch(e) {
+				console.log(e)
+		}
+
+        res.json(user)
+       
+    },
+
+
     getUser: async (req, res) => {
         let user = []
         

@@ -11,6 +11,9 @@ router.get('/:uid', userController.getUser);
 
 router.get('/', userController.getAllUser);
 
+//list user for staff only
+router.get('/role/:role', userController.getStaff);
+
 router.post('/', userController.createUser);
 
 router.patch('/:uid', userController.updateUser) 
