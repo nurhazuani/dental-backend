@@ -40,13 +40,38 @@ const Users = {
        
     },
 
+    getRolebyID: async (req, res) => {
+        let user = []
+
+         console.log(res)
+
+		try {
+            user = await Model.User.findAll({
+                    
+                where:{
+                    uid: req.params.uid,
+                    role: req.params.role
+                },
+                include: [{
+                    model: Model.Appointment,
+                }]
+
+                })
+		} catch(e) {
+				console.log(e)
+		}
+
+        res.json(user)
+       
+    },
+
     getUser: async (req, res) => {
         let user = []
         
         // console.log(req)
 
 		try {
-			user = await Model.User.findOne({
+			user = await Model.User.findAll({
 				where: {
 					uid: req.params.uid
                 },

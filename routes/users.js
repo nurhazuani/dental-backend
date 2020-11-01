@@ -11,8 +11,10 @@ router.get('/:uid', userController.getUser);
 
 router.get('/', userController.getAllUser);
 
-//list user bt role
+//list user by role
 router.get('/role/:role', userController.getRole);
+
+router.get('/role/:role/:uid', userController.getRolebyID);
 
 router.post('/', userController.createUser);
 

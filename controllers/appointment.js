@@ -25,9 +25,9 @@ const Appointment = {
         // console.log(req)
 
 		try {
-			appointment = await Model.Appointment.findOne({
+			appointment = await Model.Appointment.findAll({
 				where: {
-					uid: req.params.uid
+					UserUid: req.params.uid
                 },
                 include: [{
                     model: Model.User,
@@ -84,9 +84,10 @@ const Appointment = {
 
     deleteAppointment: async (req,res) => {
 
-        await Model.User.destroy({
+        await Model.Appointment.destroy({
 			where: {
-				id: req.params.id
+                id: req.params.id,
+                UserUid: req.params.uid
 			}	
 		})
 
