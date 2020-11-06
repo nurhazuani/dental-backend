@@ -19,7 +19,7 @@ const Appointment = {
        
     },
 
-    getAppointment: async (req, res) => {
+    getAppointmentByUser: async (req, res) => {
         let appointment = []
         
         // console.log(req)
@@ -39,7 +39,9 @@ const Appointment = {
 
         res.json(appointment)
         // console.log(appointment)
-	},
+    },
+    
+    
 
     addAppointment: async (req, res) => {
         let appointment = {}
@@ -87,7 +89,6 @@ const Appointment = {
         await Model.Appointment.destroy({
 			where: {
                 id: req.params.id,
-                UserUid: req.params.uid
 			}	
 		})
 

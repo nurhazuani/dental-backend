@@ -40,6 +40,27 @@ const Users = {
        
     },
 
+    getPosition: async (req, res) => {
+        let user = []
+
+         console.log(res)
+
+		try {
+            user = await Model.User.findAll({
+                    
+                where:{
+                    position: req.params.position
+                }
+
+                })
+		} catch(e) {
+				console.log(e)
+		}
+
+        res.json(user)
+       
+    },
+
     getRolebyID: async (req, res) => {
         let user = []
 
@@ -85,8 +106,8 @@ const Users = {
 
         res.json(user)
         console.log(user)
-	},
-
+    },
+    
     createUser: async (req, res) => {
         let user = {}
 

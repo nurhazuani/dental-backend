@@ -5,7 +5,7 @@ var userController = require('../controllers/user')
 
 
 //get all appointmnet by user id
-router.get('/:uid', aptController.getAppointment);
+router.get('/:uid', aptController.getAppointmentByUser);
 
 router.get('/', aptController.getAllAppointment);
 
@@ -16,6 +16,6 @@ router.post('/:uid', aptController.addAppointment);
 router.patch('/:uid/:id', aptController.updateAppoinment) 
 
 
-router.delete('/:uid/:id', aptController.deleteAppointment);
+router.delete('/:id', aptController.deleteAppointment);
 
 module.exports = router;

@@ -14,6 +14,8 @@ router.get('/', userController.getAllUser);
 //list user by role
 router.get('/role/:role', userController.getRole);
 
+router.get('/position/:position', userController.getPosition);
+
 router.get('/role/:role/:uid', userController.getRolebyID);
 
 router.post('/', userController.createUser);
