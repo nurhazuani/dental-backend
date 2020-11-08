@@ -41,6 +41,25 @@ const Appointment = {
         // console.log(appointment)
     },
     
+    getAppointmentByDr: async (req, res) => {
+        let appointment = []
+        
+        // console.log(req)
+
+		try {
+			appointment = await Model.Appointment.findAll({
+				where: {
+					drName: req.params.drName
+                },
+			})
+		} catch(e) {
+				console.log(e)
+		}
+
+        res.json(appointment)
+        // console.log(appointment)
+    },
+    
     
 
     addAppointment: async (req, res) => {

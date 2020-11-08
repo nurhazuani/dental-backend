@@ -7,6 +7,9 @@ var userController = require('../controllers/user')
 //get all appointmnet by user id
 router.get('/:uid', aptController.getAppointmentByUser);
 
+//get all appointmnet by Doctor name
+router.get('/:drName', aptController.getAppointmentByDr);
+
 router.get('/', aptController.getAllAppointment);
 
 //cust apply appointmnt
