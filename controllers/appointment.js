@@ -51,6 +51,31 @@ const Appointment = {
 				where: {
 					drName: req.params.drName
                 },
+                include: [{
+                    model: Model.User,
+                }]
+			})
+		} catch(e) {
+				console.log(e)
+		}
+
+        res.json(appointment)
+        // console.log(appointment)
+    },
+
+    getAppointmentStatus: async (req, res) => {
+        let appointment = []
+        
+        // console.log(req)
+
+		try {
+			appointment = await Model.Appointment.findAll({
+				where: {
+					status: req.params.status
+                },
+                include: [{
+                    model: Model.User,
+                }]
 			})
 		} catch(e) {
 				console.log(e)
@@ -107,6 +132,7 @@ const Appointment = {
 
         await Model.Appointment.destroy({
 			where: {
+                UserUid: req.params.uid,
                 id: req.params.id,
 			}	
 		})
