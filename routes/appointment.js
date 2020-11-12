@@ -19,6 +19,7 @@ router.post('/:uid', aptController.addAppointment);
 router.patch('/:uid/:id', aptController.updateAppoinment);
 
 router.get('/status/:status', aptController.getAppointmentStatus);
+router.get('/history/:status/:drName', aptController.getAppointmentStatusDr);
 
 
 router.delete('/:uid/:id', aptController.deleteAppointment);
