@@ -9,6 +9,7 @@ router.get('/:uid', aptController.getAppointmentByUser);
 
 //get all appointmnet by Doctor name
 router.get('/drname/:drName', aptController.getAppointmentByDr);
+// router.get('/drname/:drName', aptController.getAppointmentByDr);
 
 router.get('/', aptController.getAllAppointment);
 
@@ -20,7 +21,7 @@ router.patch('/:uid/:id', aptController.updateAppoinment);
 
 router.get('/status/:status', aptController.getAppointmentStatus);
 router.get('/history/:status/:drName', aptController.getAppointmentStatusDr);
-
+router.get('/historycust/:status/:uid', aptController.getAppointmentStatusCust);
 
 router.delete('/:uid/:id', aptController.deleteAppointment);
 

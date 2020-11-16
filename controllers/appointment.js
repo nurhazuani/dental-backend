@@ -49,7 +49,7 @@ const Appointment = {
 		try {
 			appointment = await Model.Appointment.findAll({
 				where: {
-					drName: req.params.drName
+                    drName: req.params.drName
                 },
                 include: [{
                     model: Model.User,
@@ -94,6 +94,28 @@ const Appointment = {
 				where: {
                     status: req.params.status,
                     drName: req.params.drName
+                },
+                include: [{
+                    model: Model.User,
+                }]
+			})
+		} catch(e) {
+				console.log(e)
+		}
+
+        res.json(appointment)
+        // console.log(appointment)
+    },
+    getAppointmentStatusCust: async (req, res) => {
+        let appointment = []
+        
+        // console.log(req)
+
+		try {
+			appointment = await Model.Appointment.findAll({
+				where: {
+                    status: req.params.status,
+                    UserUid: req.params.uid
                 },
                 include: [{
                     model: Model.User,

@@ -107,7 +107,31 @@ const Users = {
         res.json(user)
         console.log(user)
     },
+
+    getUserLogin: async (req, res) => {
+        let user = []
+        
+        // console.log(req)
+
+		try {
+			user = await Model.User.findAll({
+				where: {
+                    email: req.params.email,
+                    password: req.params.password
+                },
+                include: [{
+                    model: Model.Appointment,
+                }]
+			})
+		} catch(e) {
+				console.log(e)
+		}
+
+        res.json(user)
+        console.log(user)
+    },
     
+
     createUser: async (req, res) => {
         let user = {}
 
@@ -128,6 +152,22 @@ const Users = {
         res.json(user) //insert data at table user
     },
 
+    enterLogin: async (req, res) => {
+        let user = {}
+
+        console.log(req)
+
+        try{
+            user = await Model.User.create({
+              email: email,
+              password: password
+            })
+        } catch(e){
+            console.log(e)
+        }
+        res.json(user) //insert data at table user
+    },
+
     updateUser: async (req, res) => {
         let user = {}
 
@@ -137,7 +177,6 @@ const Users = {
                     where:{
                         uid: req.params.uid
                     }
-
             })
 
         }catch(e){
