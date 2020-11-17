@@ -142,6 +142,7 @@ const Users = {
                 uid: req.body.uid,
                 uname: req.body.uname,
                 email: req.body.email,
+                phone: req.body.phone,
                 password: req.body.password,
                 role: req.body.role,
                 position: req.body.position
